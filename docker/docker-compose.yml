@@ -21,3 +21,7 @@ services:
       POSTGRES_DB: shorturl
 
 
+  networks:
+    shorturl:
+      external: true
+
