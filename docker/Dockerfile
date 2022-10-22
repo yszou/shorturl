@@ -5,7 +5,7 @@ ADD install.sh /root/install.sh
 
 RUN apt-get update -y && \
     apt-get upgrade -y && \
-    apg-get install -y systemd
+    apt-get install -y systemd
 
 RUN bash /root/install.sh
 
