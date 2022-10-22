@@ -1,3 +1,13 @@
+# One Step to try
+
+- `cd docker`
+- `docker-compose up`
+- visit `http://localhost:8888`
+
+Please use new version docker compose.
+
+It may take you 10 mins under some net status.
+
 
 # Development Envrionment
 
