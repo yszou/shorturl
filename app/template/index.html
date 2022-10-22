@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <link rel="shortcut icon" type='image/x-icon' href="/static/favicon.ico"/>
+  <meta charset="utf-8" />
+  <title>Shorturl</title>
+  <link rel="stylesheet" type="text/css" href="{{ static_url('dataweb/dataweb.min.css') }}"/>
+  <script src="{{ static_url('lib.min.js') }}"></script>
+</head>
+<body env="{{ env }}" username="{{ current_user['name'] if current_user else '' }}" userid="{{ current_user['id'] if current_user else '' }}" version="{{ version }}">
+<div id="shorturl-app"></div>
+<script src="{{ static_url('dataweb/dataweb.min.js') }}"></script>
+</body>
+</html>
+
