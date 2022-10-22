@@ -6,7 +6,7 @@ services:
     build: .
     container_name: shorturl
     ports:
-      - "9000:8888"
+      - "8888:9000"
 
 
   postgresql-shorturl:
