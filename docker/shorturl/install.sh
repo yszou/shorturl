@@ -1,7 +1,5 @@
 apt-get update -y 
-
 apt-get upgrade -y
-
 apt-get install -y \
     language-pack-en-base \
     man \
@@ -60,26 +58,8 @@ cd nginx-1.22.1
 make
 make install
 
-
-cd /root
-git clone https://github.com/yszou/shorturl.git
-
-cd /root/shorturl/app
-rm -f config.conf
-ln -s ../conf/config-docker.conf ./config.conf
-ln -s ../conf/nginx-docker.conf ./nginx.conf
-ln -s ../conf/supervisord-docker.conf ./supervisord.conf
-mkdir /var/log/shorturl
-
-cd /root/shorturl/
-pip3 install -r requirements.txt
-
 useradd -m app
-cd /home/app
-cp -r /root/shorturl /home/app/shorturl
-chown -R app:app /home/app/shorturl
+mkdir /var/log/shorturl
 chown -R app:app /var/log/shorturl
 chown -R app:app /opt/nginx
-cd /home/app/shorturl/bin
-chmod +x shorturl_docker.sh
 
