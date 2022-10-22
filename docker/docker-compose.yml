@@ -1,0 +1,14 @@
+version: '0.1'
+
+services:
+
+  postgresql-shorturl:
+    image: postgres
+    restart: always
+    container_name: postgresql-shorturl
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app 
+      POSTGRES_DB: shorturl
+
+
