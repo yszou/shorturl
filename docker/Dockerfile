@@ -9,6 +9,6 @@ RUN apt-get update -y && \
 
 RUN bash /root/install.sh
 
-CMD ["/home/app/shorturl/bin/shorturl_docker.sh", "start"]
-
+# CMD ["/home/app/shorturl/bin/shorturl_docker.sh", "start"]
+CMD ["/usr/local/bin/supervisord", "-c", "/home/app/shorturl/app/supervisord.conf"]
 
