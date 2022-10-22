@@ -5,6 +5,7 @@ services:
   shorturl:
     build: .
     container_name: shorturl
+    hostname: shorturl
     ports:
       - "8888:9000"
 
@@ -13,6 +14,7 @@ services:
     image: postgres
     restart: always
     container_name: postgresql-shorturl
+    hostname: postgresql-shorturl
     environment:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app 
