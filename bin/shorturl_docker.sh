@@ -1,6 +1,6 @@
 #!/bin/bash  
-SV=/usr/bin/supervisord
-SVC=/usr/bin/supervisorctl
+SV=/usr/local/bin/supervisord
+SVC=/usr/local/bin/supervisorctl
 LOG_DIR=/var/log/shorturl
 SVPID=$LOG_DIR/supervisord.pid
 DIR_NAME=/home/app/shorturl/app
