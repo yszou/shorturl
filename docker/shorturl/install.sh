@@ -51,10 +51,13 @@ pip3 install supervisor
 
 
 cd /root
+
+git clone https://github.com/replay/ngx_http_consistent_hash.git
 wget https://nginx.org/download/nginx-1.22.1.tar.gz
+
 tar xzf nginx-1.22.1.tar.gz
 cd nginx-1.22.1
-./configure --prefix=/opt/nginx
+./configure --prefix=/opt/nginx --add-module=/root/ngx_http_consistent_hash
 make
 make install
 
