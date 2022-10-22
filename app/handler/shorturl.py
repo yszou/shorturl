@@ -10,10 +10,10 @@ from app.lib.number_to_code import number_to_code
 
 class ShorturlHandler(BaseRestHandler):
 
+    ACTIONS = {'create', 'delete'}
+
     def permission(self):
-        if not self.current_user:
-            self.finish({'code': -1, 'msg': 'need to login first'})
-            return
+        return
 
     def get_query(self):
         return self.db.query(Shorturl)
@@ -46,6 +46,10 @@ class ShorturlHandler(BaseRestHandler):
 
 
     def delete(self):
+        if not self.current_user:
+            self.finish({'code': -1, 'msg': 'need to login first'})
+            return
+
         self.list_filter(self.get_query()).filter_by(id=self.p.id).update({'status': Shorturl.STATUS_DELETE},
                                                                           synchronize_session=False)
         self.db.commit()

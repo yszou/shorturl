@@ -12,6 +12,8 @@ logger = logging.getLogger('app.base_rest')
 class BaseRestHandler(BaseSessionHandler):
     SUPPORTED_METHODS = ('GET', 'POST', 'OPTIONS')
 
+    ACTIONS = {'create', 'delete', 'update', 'read', 'list', 'option'}
+
     DEFAULT_PAGE = 1
     DEFAULT_PER_PAGE = 10
     MAX_PER_PAGE = 100
@@ -68,6 +70,10 @@ class BaseRestHandler(BaseSessionHandler):
         if self.is_post_method(action):
             self.send_error(403)
         else:
+            if action not in self.__class__.ACTIONS:
+                self.send_error(404)
+                return
+
             method = getattr(self, action, None)
             if not method:
                 self.send_error(404)
@@ -83,6 +89,11 @@ class BaseRestHandler(BaseSessionHandler):
             return
 
         action = action[1:]
+
+        if action not in self.__class__.ACTIONS:
+            self.send_error(404)
+            return
+
         method = getattr(self, action, None)
         if not method:
             self.send_error(404)
