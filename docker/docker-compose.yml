@@ -1,14 +1,17 @@
 version: '0.1'
 
-services:
+networks:
+  shorturl:
+    external: true
 
+
+services:
   shorturl:
     build: .
     container_name: shorturl
     hostname: shorturl
     ports:
       - "8888:9000"
-
 
   postgresql-shorturl:
     image: postgres
@@ -19,9 +22,4 @@ services:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app 
       POSTGRES_DB: shorturl
-
-
-  networks:
-    shorturl:
-      external: true
 
