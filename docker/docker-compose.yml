@@ -2,6 +2,13 @@ version: '0.1'
 
 services:
 
+  shorturl:
+    build: .
+    container_name: shorturl
+    ports:
+      - "9000:8888"
+
+
   postgresql-shorturl:
     image: postgres
     restart: always

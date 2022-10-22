@@ -8,6 +8,7 @@ apt-get install -y \
     sudo \
     gcc \
     g++ \
+    systemd \
     zlib1g-dev \
     libjpeg-dev \
     libpng-dev \
